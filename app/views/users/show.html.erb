@@ -1,7 +1,22 @@
 <div class="text-center">
   <h1><%= @user.name %></h1>
 
+  <% if @user == current_user %>
       <p class="buffer-top">
-        <%= link_to "Редактировать профиль", edit_user_path(@user), class: 'btn btn-default' %>
+        <%= link_to "Редактировать профиль", edit_user_registration_path, class: 'btn btn-default' %>
       </p>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <% if @user.products.any? %>
+        <h3>Добавил:</h3>
+        <div class="row">
+          <%= render partial: 'products/product', collection: @user.products %>
+        </div>
+    <% else %>
+        <p class="buffer-top">Пользователь пока ничего не добавил</p>
+    <% end %>
+  </div>
 </div>

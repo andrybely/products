@@ -1,5 +1,10 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+
+  before_action :authenticate_user!, except: [:show, :index]
+
+  before_action :set_product, only: [:show]
+
+  before_action :set_current_user_product, only: [:edit, :update, :destroy]
 
   # GET /products
   def index
@@ -8,11 +13,12 @@ class ProductsController < ApplicationController
 
   # GET /products/1
   def show
+    @new_photo = @product.photos.build(params[:photo])
   end
 
   # GET /products/new
   def new
-    @product = Product.new
+    @product = current_user.products.build
   end
 
   # GET /products/1/edit
@@ -21,10 +27,10 @@ class ProductsController < ApplicationController
 
   # POST /products
   def create
-    @product = Product.new(product_params)
+    @product = current_user.products.build(product_params)
 
     if @product.save
-      redirect_to @product, notice: 'Product was successfully created.'
+      redirect_to @product, notice: 'Продукт успешно создан'
     else
       render :new
     end
@@ -33,7 +39,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   def update
     if @product.update(product_params)
-      redirect_to @product, notice: 'Product was successfully updated.'
+      redirect_to @product, notice: 'Продукт успешно обновлен'
     else
       render :edit
     end
@@ -42,10 +48,14 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   def destroy
     @product.destroy
-    redirect_to products_url, notice: 'Product was successfully destroyed.'
+    redirect_to products_url, notice: 'Продукт успешно удален'
   end
 
   private
+
+  def set_current_user_product
+    @product = current_user.products.find(params[:id])
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])

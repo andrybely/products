@@ -15,11 +15,11 @@
             <p><%= @product.description %></p>
           </div>
 
-          <%#<% if current_user_can_edit?(@product) %>
+          <<% if current_user_can_edit?(@product) %>
              < <div class="buffer-top">
                 <%= link_to 'Изменить', edit_product_path(@product), class: 'btn btn-primary' %>
               </div>
-          <%#<% end %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -29,11 +29,11 @@
     <div class="col-md-8">
       <div class="product-photos">
         <div class="product-photos-gallery">
-         <%# <%= render partial: 'photos/photo', collection: @products.photos.except(@new_photo) %>
+          <%= render partial: 'photos/photo', collection: @product.photos.except(@new_photo) %>
         </div>
 
         <div class="product-photo-form">
-         <%# <%= render partial: 'photos/form', locals: {photo: @new_photo || @product.photo.build} %>
+          <%= render partial: 'photos/form', locals: {photo: @new_photo || @product.photo.build} %>
         </div>
       </div>
     </div>
@@ -41,7 +41,7 @@
     <div class="col-md-4">
       <div class="product-owner">
         <h4>Добавил:</h4>
-      <%#  <p><%= render partial: 'users/user', object: @product.user %> <%#</p> %>
+       <p><%= render partial: 'users/user', object: @product.user %></p>
       </div>
     </div>
   </div>
