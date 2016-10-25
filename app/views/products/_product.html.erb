@@ -1,0 +1,14 @@
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail">
+
+    <%= content_tag 'div', '',
+                    class: 'product-background',
+                    style: "background-image: url(#{asset_path('product.jpg')})"
+    %>
+      <div class="caption">
+        <div class="description">
+          <h3><%= link_to product.title, product_path(product) %></h3>
+        </div>
+      </div>
+  </div>
+</div>

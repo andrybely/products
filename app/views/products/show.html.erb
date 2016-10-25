@@ -1,4 +1,48 @@
-<p id="notice"><%= notice %></p>
+<div class="product">
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+  <div class="product-info row">
+
+    <div class="col-md-12">
+      <%= content_tag 'div', '',
+                      class: 'product-background',
+                      style: "background-image: url(#{asset_path('product.jpg')})"
+      %>
+
+      <div class="product-info-inner row">
+        <div class="col-md-6">
+          <div class="product-description">
+            <h1><%= @product.title %></h1>
+            <p><%= @product.description %></p>
+          </div>
+
+          <%#<% if current_user_can_edit?(@product) %>
+             < <div class="buffer-top">
+                <%= link_to 'Изменить', edit_product_path(@product), class: 'btn btn-primary' %>
+              </div>
+          <%#<% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="product-photos">
+        <div class="product-photos-gallery">
+         <%# <%= render partial: 'photos/photo', collection: @products.photos.except(@new_photo) %>
+        </div>
+
+        <div class="product-photo-form">
+         <%# <%= render partial: 'photos/form', locals: {photo: @new_photo || @product.photo.build} %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="product-owner">
+        <h4>Добавил:</h4>
+      <%#  <p><%= render partial: 'users/user', object: @product.user %> <%#</p> %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -13,3 +13,75 @@
  *= require_tree .
  *= require_self
  */
+
+/* Buffers */
+.buffer-top {
+    margin-top: 20px;
+}
+
+.buffer-bottom {
+    margin-bottom: 20px;
+}
+
+.buffer-both {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Avatars for products */
+.img-icon, .img-icon-small {
+    height: 50px;
+    width: auto;
+    border-radius: 50%;
+}
+
+.product-background {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+}
+
+
+.product-description * {
+    color: white;
+}
+
+.product-description a {
+    color: #d0d0ff;
+}
+
+.product-description small {
+    color: #e0e0e0;
+}
+
+/* Thumbnails for events/index */
+.thumbnail {
+    position: relative;
+    background: transparent;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.thumbnail h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: 0;
+    margin-bottom: .3em;
+}
+
+.thumbnail-inner {
+    padding: 20px 4px 4px;
+}
