@@ -53,7 +53,9 @@
                 <li><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li>
             <% else %>
                 <li><%= link_to 'Войти', new_user_session_path %></li>
-                <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
+                <li><%= link_to 'Регистрация пользователей', new_user_registration_path%></li>
+                <li><%= link_to 'Регистрация магазинов', new_user_registration_path%></li>
+                <li><%= link_to 'Регистрация администраторов', new_user_registration_path%></li>
             <% end %>
           </ul>
         </div>

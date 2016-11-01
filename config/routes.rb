@@ -8,4 +8,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update]
 
+
+  resources :guests, only: [:new, :show, :create, :edit, :update, :destroy]
+
+
 end
