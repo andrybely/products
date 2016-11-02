@@ -1,5 +1,5 @@
 class GuestsController < ApplicationController
-  before_action :set_current_guest, except: [:show]
+  # before_action :set_current_guest, except: [:show]
   # before_action :authenticate_user!, except: [:show]
 
 

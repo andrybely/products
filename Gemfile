@@ -16,7 +16,10 @@ gem 'carrierwave'
 
 gem 'rmagick'
 
+gem "binding_of_caller"
+
 group :development, :test do
+  gem "better_errors"
   gem 'sqlite3'
   gem 'byebug'
   gem 'listen'
